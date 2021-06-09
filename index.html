@@ -99,8 +99,7 @@
         
 
 
-        <h2>Full-width Table</h2>
-        <p>Use width: 100% to create a full-width table:</p>
+        
           
         <table id="table" class="table">
           <tr>
@@ -114,10 +113,7 @@
     
       <script>
         
-        function getValue (){
-        let o = document.getElementById("name").value;
-        console.log(o);
-        }
+        
 
           getData();
   
@@ -127,13 +123,13 @@
               console.log(data);
               
   
-              for (let i = 0; i < 121; i++) {
+            for (let i = 0; i < 121; i++) {
   
               const a = i+1;
               const b = data[i].localized_name;
               const c = data[i].attack_type;
               const d = data[i].roles;
-              
+                            
               
               let tda = document.createElement("td");
               let tdb = document.createElement("td");
@@ -160,9 +156,57 @@
               
               let table = document.getElementById("table"); 
               table.appendChild(tr);
-              }
+            }
+
+          }
+
+            // function getValue (){
+            //   // const response = getData();
+            //   const o = document.getElementById("name").value;
+            //   console.log(o);
+            //   if(o == data[1].localized_name){
+            //     console.log("yess");
+            //     console.log("the name is" + data[i].localized_name);
+            //     console.log("the id is" + data[i].id);
+            //     } else console.log("Noo");
+
+            // }  
+          
+           
+
+            function getValue (){
+              // const response = getData();
+              const o = document.getElementById("name").value;
+              console.log(o);
+              getData().then(data => {
+
+              //   for (let i = 0; i < 10; i++){
+              //   if(o == data[i].localized_name){
+              //   console.log("yess");
+              //   console.log("the name is" + data[i].localized_name);
+              //   console.log("the id is" + data[i].id);
+              //   } else console.log("Noo");
+              // }
+
+                console.log(data[0]);
+              });
+
+              // console.log(document.g);
+                // };
+                // const data = response.json();
+                // console.log(response);
+                // console.log(response[0].localized_name);
+                
+              //   for (let i = 0; i < 121; i++){
+              //   if(o == data[1].localized_name){
+              //   console.log("yess");
+              //   console.log("the name is" + data[i].localized_name);
+              //   console.log("the id is" + data[i].id);
+              //   } else console.log("Noo");
+              // }
+            }  
   
-          } 
+         
 
           // console.log(getData())
   
