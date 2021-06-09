@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Experimental Page</title>
+</head>
+
+<body>
+    
+
+    <style>
+
+        table {
+          border-collapse: collapse;
+          border-spacing: 0;
+          width: 100%;
+          border: 1px solid #ddd;
+        }
+        
+        th, td {
+          text-align: left;
+          padding: 16px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+        
+    </style>
+    
+    <body>
+        
+        <h2>Full-width Table</h2>
+        <p>Use width: 100% to create a full-width table:</p>
+        
+        <table id="table" class="table">
+          <tr >
+            <th >N</th>
+            <th >Hero Name</th>
+            <th>Attack Type</th>
+            <th>Roles</th>
+          </tr>
+          <!-- <tr id="table1"> -->
+            <!-- <td >Hero Name</td>
+            <td>Attack Type</td>
+            <td>Roles</td> -->
+          <!-- </tr>  -->
+          <tr id="tr1">
+            <!-- <td >Hero Name</td>
+            <td>Attack Type</td>
+            <td>Roles</td> -->
+          </tr>
+          <tr id="tr2">
+            <!-- <td >Hero Name</td>
+            <td>Attack Type</td>
+            <td>Roles</td> -->
+          </tr>  
+        </table> 
+<!-- td 0v grel functian u objecti bolor tvialnery -->
+        </body>
+
+        <!-- <p id="type"></p>    -->
+
+    <script>
+        getData();
+
+        async function getData() {
+            const response = await fetch('https://api.opendota.com/api/heroes');
+            const data = await response.json();
+            console.log(data);
+            // console.log(data[0]);
+            // console.log(data[0].attack_type);
+
+            for (let i = 0; i < 2; i++) {
+
+            const a = data[i].id;
+            const b = data[i].localized_name;
+            const c = data[i].attack_type;
+            let d = 1;
+             
+         
+        e = document.getElementById("tr"+d).id
+            // createTable1(d);
+            // createTable2(a);
+            // createTable1();
+            createTable2(e,a);
+            createTable2(e,b);
+            createTable2(e,c);
+            createTable2(e,data[i].roles);
+            createTable1(e);
+            d++
+        continue;    
+        }
+            // createTable2(a);
+            // createTable2(b);
+            // createTable2(c);
+            // createTable2(data[1].roles); 
+            // }
+            
+        
+        
+        // function createTable1(text) {
+        //     let line = document.createElement("td");
+        //     let node = document.createTextNode(text);
+        //     line.appendChild(node);
+        //     let element = document.getElementById("table1")
+        //     element.appendChild(line);
+        // }
+        
+        // function createTable2(text) {
+        //     let line = document.createElement("td");
+        //     let node = document.createTextNode(text);
+        //     line.appendChild(node);
+        //     let element = document.getElementById("table2")
+        //     element.appendChild(line);
+        // }    
+            // document.getElementById('type').innerHTML += " " + data[0].roles[1];
+
+            // const rows = data.split(':');
+            // console.log(rows)
+
+        // vercnel tablen mejy sarqel tr mejy dra td
+        function createTable1(toxihamar) {
+            
+            
+            let cols = document.createElement("tr");
+            cols.id = "tr"+toxihamar;
+            let table = document.getElementById("table")
+            table.appendChild(cols);
+            // let colText = document.createTextNode(text);
+            // cols.appendChild(colText);
+            // createTable2(n);
+
+            
+        }    
+        
+        function createTable2(id,text) {
+            let rows = document.createElement("td");
+            let rowText = document.createTextNode(text);
+            rows.appendChild(rowText);
+            let element = document.getElementById(id)
+            element.appendChild(rows);
+            // createTable1(n);
+        }
+
+
+        }
+
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+  <!-- <style>
+  
+.flip-card {
+
+width: 300px;
+height: 300px;
+}
+
+.flip-card-inner {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.5s;
+transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+}
+
+.flip-card-front {
+background-color: white;
+color: red;
+}
+
+.flip-card-back {
+background-color: whitesmoke;
+color: black;
+transform: rotateY(180deg);
+}
+
+      * {
+        box-sizing: border-box;
+        text-align:center;
+      }
+      
+      .column {
+        float: left;
+        padding: 5px;
+        margin-left: 4%;
+        margin-right: auto;
+      }
+      
+      /* Clearfix (clear floats) */
+      .row::after {
+        margin-left: 100px;
+        content: "";
+        clear: both;
+        display: table;
+      }
+      </style> -->
+      
+  <h2>Best Dota 2 Support Heroes</h2>
+  <p>Wreck Your Enemies With The 10 Best Support Heroes in Dota 2 </p>
+      
+  <div class="row">
+    <div class="column">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://www.gamersdecide.com/sites/default/files/authors/u142855/sup29ss1.jpg" alt="Shadow Shaman" style="width:300px;height:300px;">
+            </div>
+            <div class="flip-card-back">
+            <h1>Shadow Shaman</h1> 
+            <p>Shadow Shaman was brought under the guise of a con man who he would later avenge the death of</p> 
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <div class="column">
+      <div class="flip-card">
+          <div class="flip-card-inner">
+              <div class="flip-card-front">
+              <img src="https://www.gamersdecide.com/sites/default/files/authors/u142855/sup26willow1.jpg" alt="Dark Willow" style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back">
+              <h1>Dark Willow</h1> 
+              <p>Getting bored of her noble lifestyle, Dark Willow burned down her family estate to become a wandering grifter</p> 
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <div class="column">
+          <div class="flip-card">
+              <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                  <img src="https://www.gamersdecide.com/sites/default/files/authors/u142855/sup23ogre1.jpg" alt="Ogre Magi" style="width:300px;height:300px;">
+                  </div>
+                  <div class="flip-card-back">
+                  <h1>Ogre Magi</h1> 
+                  <p>Graced with two heads, Ogre Magi is the wisest of all the known ogres</p>
+                  </div>
+              </div>
+          </div>
+    </div>
+      
+    <div class="column">
+          <div class="flip-card">
+              <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                  <img src="https://www.gamersdecide.com/sites/default/files/authors/u142855/sup20dis1.jpg" alt="Disruptor" style="width:300px;height:300px;">
+                  </div>
+                  <div class="flip-card-back">
+                  <h1>Disruptor</h1> 
+                  <p>A stormcrafter from Druud, Disruptor has learned to utilize electricity for his benefit</p>
+                  </div>
+              </div>
+          </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOTA-2</title>
+    <link rel="stylesheet" href="dota.css">
+</head>
+
+  <body>
+
+    <style>
+
+      body, html {
+        background-color: black;
+        color: white;
+        height: 100%;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      .hero-image {
+        /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://th.bing.com/th/id/R2bbf3fcd1e3d8046f8cf1fb38dbb29f7?rik=DQdAv3L%2bO6UVIQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fPhotos-Download-Dota-2-Logo-Wallpapers.jpg&ehk=cxxGLMTufFYgO6%2fuuY2D1V9iyayTSbRtH013BfkCX2E%3d&risl=&pid=ImgRaw"); */
+        height: 20%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+      
+      .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+      }
+    
+    </style> 
+    
+    <div class="hero-image">
+      <div class="hero-text">
+        <h1 style="font-size: 40px">WELCOME TO THE WORLD OF DOTA 2</h1>
+      </div>
+    </div>
+     
+  </body>
+
+  
+  <body>
+    
+    <style>
+
+      .submitButton{
+        color: white;
+        background-color: rgb(133, 9, 0);
+        border: 0;
+        margin-top: 10px;       
+      }
+
+      .submitButton:hover{
+        box-shadow: 0 0 15px red;
+      }
+
+      .name{
+
+        width: 30%;
+        height: 30px;
+        background-color: black;
+        color: red;
+        box-shadow: 0 0 15px red;
+      }
+  
+      table {
+        margin-left: auto;
+        margin-right: auto;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 94%;
+        box-shadow: 0 0 50px red;
+      }
+          
+      th, td {
+      text-align: left;
+      padding: 16px;
+      }
+          
+      tr:nth-child(even) {
+      background-color: rgb(133, 9, 0);
+      }
+          
+    </style>
+      
+      <body>
+        
+        <form style="margin: 10px;">
+          <input class="name" type="text" id="name" placeholder="Choose a hero name"><br>
+          <input class="submitButton" type="button"  value="Submit" onclick="getValue()">
+        </form> 
+        
+
+
+        <h2>Full-width Table</h2>
+        <p>Use width: 100% to create a full-width table:</p>
+          
+        <table id="table" class="table">
+          <tr>
+            <th>N</th>
+            <th>Hero Name</th>
+            <th>Attack Type</th>
+            <th>Roles</th>
+          </tr>
+        </table> 
+      </body>
+    
+      <script>
+        
+        function getValue (){
+        let o = document.getElementById("name").value;
+        console.log(o);
+        }
+
+          getData();
+  
+          async function getData() {
+              const response = await fetch('https://api.opendota.com/api/heroes');
+              const data = await response.json();
+              console.log(data);
+              
+  
+              for (let i = 0; i < 121; i++) {
+  
+              const a = i+1;
+              const b = data[i].localized_name;
+              const c = data[i].attack_type;
+              const d = data[i].roles;
+              
+              
+              let tda = document.createElement("td");
+              let tdb = document.createElement("td");
+              let tdc = document.createElement("td");
+              let tdd = document.createElement("td");
+              
+              
+              let nodea = document.createTextNode(a);
+              let nodeb = document.createTextNode(b);
+              let nodec = document.createTextNode(c);
+              let noded = document.createTextNode(d);
+              
+  
+              tda.appendChild(nodea);
+              tdb.appendChild(nodeb);
+              tdc.appendChild(nodec);
+              tdd.appendChild(noded);
+  
+              let tr = document.createElement("tr"); 
+              tr.appendChild(tda);
+              tr.appendChild(tdb);
+              tr.appendChild(tdc);
+              tr.appendChild(tdd);
+              
+              let table = document.getElementById("table"); 
+              table.appendChild(tr);
+              }
+  
+          } 
+
+          // console.log(getData())
+  
+      </script>
+  </body>
+</html>
+    
