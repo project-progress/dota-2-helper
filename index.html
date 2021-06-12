@@ -1,216 +1,422 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>DOTA-2</title>
-    <link rel="stylesheet" href="dota.css">
-</head>
+
+  <head>
+      <title>index</title>
+      <link rel="stylesheet" href="dota.css">
+  </head>
+
+  <!-- Heading -->
 
   <body>
 
     <style>
 
-      body, html {
-        background-color: black;
-        color: white;
-        height: 100%;
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      
-      .hero-image {
-        /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://th.bing.com/th/id/R2bbf3fcd1e3d8046f8cf1fb38dbb29f7?rik=DQdAv3L%2bO6UVIQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fPhotos-Download-Dota-2-Logo-Wallpapers.jpg&ehk=cxxGLMTufFYgO6%2fuuY2D1V9iyayTSbRtH013BfkCX2E%3d&risl=&pid=ImgRaw"); */
-        height: 20%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-      }
-      
-      .hero-text {
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-      }
+    body, html {
+      background-color: black;
+      color: white;
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .hero-image {
+      /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://th.bing.com/th/id/R2bbf3fcd1e3d8046f8cf1fb38dbb29f7?rik=DQdAv3L%2bO6UVIQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fPhotos-Download-Dota-2-Logo-Wallpapers.jpg&ehk=cxxGLMTufFYgO6%2fuuY2D1V9iyayTSbRtH013BfkCX2E%3d&risl=&pid=ImgRaw"); */
+      height: 20%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    
+    .hero-text {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
     
     </style> 
-    
+      
     <div class="hero-image">
       <div class="hero-text">
         <h1 style="font-size: 40px">WELCOME TO THE WORLD OF DOTA 2</h1>
       </div>
     </div>
-     
+      
   </body>
 
-  
-  <body>
+  <!-- Input -->
     
+  <body>
+      
     <style>
 
-      .submitButton{
-        color: white;
-        background-color: rgb(133, 9, 0);
-        border: 0;
-        margin-top: 10px;       
-      }
-
-      .submitButton:hover{
-        box-shadow: 0 0 15px red;
-      }
-
-      .name{
-
-        width: 30%;
-        height: 30px;
-        background-color: black;
-        color: red;
-        box-shadow: 0 0 15px red;
-      }
-  
-      table {
-        margin-left: auto;
-        margin-right: auto;
-        border-collapse: collapse;
-        border-spacing: 0;
-        width: 94%;
-        box-shadow: 0 0 50px red;
-      }
-          
-      th, td {
-      text-align: left;
-      padding: 16px;
-      }
-          
-      tr:nth-child(even) {
+    .submitButton {
+      color: white;
       background-color: rgb(133, 9, 0);
-      }
-          
-    </style>
-      
-      <body>
-        
-        <form style="margin: 10px;">
-          <input class="name" type="text" id="name" placeholder="Choose a hero name"><br>
-          <input class="submitButton" type="button"  value="Submit" onclick="getValue()">
-        </form> 
-        
+      border: 0;
+      padding: 5px;
+      width: 10%;
+      margin-top: 0.5%;
+      margin-left: 10.5%;
+      margin-right: 10.5%;
+      visibility: visible;  
+    }
+
+    .submitButton1, 
+    .submitButton2{
+      color: white;
+      background-color: rgb(133, 9, 0);
+      border: 0;
+      padding: 5px;
+      width: 10%;
+      margin-top: 0.5%;
+      margin-left: 10.5%;
+      margin-right: 10.5%; 
+      visibility: hidden; 
+    }
+
+    .submitButton:hover,
+    .submitButton1:hover,
+    .submitButton2:hover{
+      box-shadow: 0 0 15px red;
+    } 
+
+    .compareButton,
+    .viewAllButton{
+      display: none;
+      margin: 10px;
+      color: white;
+      background-color: rgb(133, 9, 0);
+      border: 0;
+      padding: 5px;
+      width: 10%;
+    }
+
+    .compareButton:hover,
+    .viewAllButton:hover{
+      box-shadow: 0 0 15px red;
+    }
+
+    .name {
+      width: 30%;
+      height: 30px;
+      background-color: black;
+      color: red;
+      box-shadow: 0 0 15px red;
+      visibility: visible;
+    }
+
+    .name1, 
+    .name2 {
+      width: 30%;
+      height: 30px;
+      background-color: black;
+      color: red;
+      box-shadow: 0 0 15px red;
+      visibility: hidden;
+    }
 
 
+    .table {
+      display: inline-table;
+      margin-left: auto;
+      margin-right: auto;
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 94%;
+      box-shadow: 0 0 50px red;
+    }
         
-          
-        <table id="table" class="table">
-          <tr>
-            <th>N</th>
-            <th>Hero Name</th>
-            <th>Attack Type</th>
-            <th>Roles</th>
-          </tr>
-        </table> 
-      </body>
+    th, td {
+    text-align: left;
+    padding: 16px;
     
-      <script>
+    }
         
+    tr:nth-child(even) {
+    background-color: rgb(133, 9, 0);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .row {
+      margin-left:-5px;
+      margin-right:-5px;
+    }
+      
+    .column {
+      float: left;
+      width: 50%;
+      padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
         
+    </style>
+                      
+    <form style="margin: 10px;" id="form">
 
-          getData();
-  
-          async function getData() {
-              const response = await fetch('https://api.opendota.com/api/heroes');
-              const data = await response.json();
-              console.log(data);
-              
-  
-            for (let i = 0; i < 121; i++) {
-  
-              const a = i+1;
-              const b = data[i].localized_name;
-              const c = data[i].attack_type;
-              const d = data[i].roles;
-                            
-              
-              let tda = document.createElement("td");
-              let tdb = document.createElement("td");
-              let tdc = document.createElement("td");
-              let tdd = document.createElement("td");
-              
-              
-              let nodea = document.createTextNode(a);
-              let nodeb = document.createTextNode(b);
-              let nodec = document.createTextNode(c);
-              let noded = document.createTextNode(d);
-              
-  
-              tda.appendChild(nodea);
-              tdb.appendChild(nodeb);
-              tdc.appendChild(nodec);
-              tdd.appendChild(noded);
-  
-              let tr = document.createElement("tr"); 
-              tr.appendChild(tda);
-              tr.appendChild(tdb);
-              tr.appendChild(tdc);
-              tr.appendChild(tdd);
-              
-              let table = document.getElementById("table"); 
-              table.appendChild(tr);
-            }
-
-          }
-
-            // function getValue (){
-            //   // const response = getData();
-            //   const o = document.getElementById("name").value;
-            //   console.log(o);
-            //   if(o == data[1].localized_name){
-            //     console.log("yess");
-            //     console.log("the name is" + data[i].localized_name);
-            //     console.log("the id is" + data[i].id);
-            //     } else console.log("Noo");
-
-            // }  
+      <input id="name1" class="name1" type="text"  placeholder="Choose the name of the 1st heroe">
+      <input id="name" class="name" type="text"  placeholder="Choose a hero name">
+      <input id="name2" class="name2" type="text"  placeholder="Choose the name of the 2nd heroe">
+      <br>
+      <input id="submitButton1" class="submitButton1" value="Compare" onclick="getHero1()">
+      <input id="submitButton"  class="submitButton"  value="Submit" onclick="getHero()">
+      <input id="submitButton2" class="submitButton2" value="Compare" onclick="getHero2()">
+   
+    </form> 
           
-           
-
-            function getValue (){
-              // const response = getData();
-              const o = document.getElementById("name").value;
-              console.log(o);
-              getData().then(data => {
-
-              //   for (let i = 0; i < 10; i++){
-              //   if(o == data[i].localized_name){
-              //   console.log("yess");
-              //   console.log("the name is" + data[i].localized_name);
-              //   console.log("the id is" + data[i].id);
-              //   } else console.log("Noo");
-              // }
-
-                console.log(data[0]);
-              });
-
-              // console.log(document.g);
-                // };
-                // const data = response.json();
-                // console.log(response);
-                // console.log(response[0].localized_name);
-                
-              //   for (let i = 0; i < 121; i++){
-              //   if(o == data[1].localized_name){
-              //   console.log("yess");
-              //   console.log("the name is" + data[i].localized_name);
-              //   console.log("the id is" + data[i].id);
-              //   } else console.log("Noo");
-              // }
-            }  
-  
-         
-
-          // console.log(getData())
-  
-      </script>
   </body>
+
+  <!-- Tables -->
+
+  <body id="bodyTable"> 
+         
+    <table id="table" class="table"></table> 
+    <table id="resultTable" class="table"></table>
+    <div class="row">
+      <div class="column"> <table id="table1" class="table"></table> </div>
+      <div class="column"> <table id="table2" class="table"></table> </div>
+    </div>
+    <br>
+    <input id="compareButton" class="compareButton" value="Compare"  onclick="compareButton()"> 
+    <input id="viewAllButton" class="viewAllButton" value="view all heroes"onclick="returnHeroesButton()">  
+
+  </body>
+  
+  <script>
+    
+    createTable("table");
+
+    function getHero (){    
+      
+      let clearDisplay = document.getElementById("table");
+      clearDisplay.style.display = "none";
+
+      let resultTable = document.getElementById("resultTable");
+      resultTable.style.display = "inline-table"; 
+
+      let viewAllButton = document.getElementById("viewAllButton");
+      viewAllButton.style.display = "inline";
+      
+      let compareButton = document.getElementById("compareButton");
+      compareButton.style.display = "inline";
+
+      createTableIf("name","resultTable")
+     
+    }
+
+    function getHero1 (){createTableIf("name1","table1");}
+
+    function getHero2 (){createTableIf("name2","table2");}
+
+    function returnHeroesButton (){
+
+      let resultTable = document.getElementById("resultTable");
+      resultTable.style.display = "none"; 
+
+      let returnTable = document.getElementById("table");
+      returnTable.style.display = "inline-table";
+
+      let viewAllButton = document.getElementById("viewAllButton");
+      viewAllButton.style.display = "none";
+
+      let compareButton = document.getElementById("compareButton");
+      compareButton.style.display = "none";
+
+    }
+
+    function compareButton (){
+
+      let resultTable = document.getElementById("resultTable");
+      resultTable.style.display = "none"; 
+
+      let viewAllButton = document.getElementById("viewAllButton");
+      viewAllButton.style.display = "none";
+
+      let compareButton = document.getElementById("compareButton");
+      compareButton.style.display = "none";
+
+      let name = document.getElementById("name");
+      name.style.visibility = "hidden";
+
+      let name1 = document.getElementById("name1");
+      name1.style.visibility = "visible";
+
+      let name2 = document.getElementById("name2");
+      name2.style.visibility = "visible";
+
+      let submitButton = document.getElementById("submitButton");
+      submitButton.style.visibility = "hidden";
+      
+      let submitButton1 = document.getElementById("submitButton1");
+      submitButton1.style.visibility = "visible";
+
+      let submitButton2 = document.getElementById("submitButton2");
+      submitButton2.style.visibility = "visible";
+
+    }
+
+    function createTable(tableID){
+    
+    const n = "N";
+    const heroName = "Hero name";
+    const attackType = "Attack Type";
+    const roles = "Roles";           
+    
+    let tda = document.createElement("th");
+    let tdb = document.createElement("th");
+    let tdc = document.createElement("th");
+    let tdd = document.createElement("th");
+                  
+    let nodeN = document.createTextNode(n);
+    let nodebHeroName = document.createTextNode(heroName);
+    let nodeAttackType = document.createTextNode(attackType);
+    let nodeRoles = document.createTextNode(roles);
+    
+    tda.appendChild(nodeN);
+    tdb.appendChild(nodebHeroName);
+    tdc.appendChild(nodeAttackType);
+    tdd.appendChild(nodeRoles);
+
+    let tr = document.createElement("tr"); 
+    tr.appendChild(tda);
+    tr.appendChild(tdb);
+    tr.appendChild(tdc);
+    tr.appendChild(tdd);
+    
+    let table = document.getElementById(tableID); 
+    table.appendChild(tr);
+
+    fetch('https://api.opendota.com/api/heroes')
+      .then( data => {
+        return data.json();
+      })
+      .then(data => {
+      for (let i = 0; i < 6; i++) {
+
+      const a = i+1;
+      const b = data[i].localized_name;
+      const c = data[i].attack_type;
+      const d = data[i].roles;
+                    
+      
+      let tda = document.createElement("td");
+      let tdb = document.createElement("td");
+      let tdc = document.createElement("td");
+      let tdd = document.createElement("td");
+      
+      
+      let nodea = document.createTextNode(a);
+      let nodeb = document.createTextNode(b);
+      let nodec = document.createTextNode(c);
+      let noded = document.createTextNode(d);
+      
+
+      tda.appendChild(nodea);
+      tdb.appendChild(nodeb);
+      tdc.appendChild(nodec);
+      tdd.appendChild(noded);
+
+      let tr = document.createElement("tr"); 
+      tr.appendChild(tda);
+      tr.appendChild(tdb);
+      tr.appendChild(tdc);
+      tr.appendChild(tdd);
+      
+      let table = document.getElementById(tableID); 
+      table.appendChild(tr);
+    } 
+  }); 
+  }
+
+    function createTableIf(inputID, tableID){
+    
+      const o = document.getElementById(inputID).value;
+      const n = "N";
+      const heroName = "Hero name";
+      const attackType = "Attack Type";
+      const roles = "Roles";
+               
+      let thN = document.createElement("th");
+      let thHeroName = document.createElement("th");
+      let thAttackType = document.createElement("th");
+      let thRoles = document.createElement("th");
+                            
+      let nodeN = document.createTextNode(n);
+      let nodebHeroName = document.createTextNode(heroName);
+      let nodeAttackType = document.createTextNode(attackType);
+      let nodeRoles = document.createTextNode(roles);     
+  
+      thN.appendChild(nodeN);
+      thHeroName.appendChild(nodebHeroName);
+      thAttackType.appendChild(nodeAttackType);
+      thRoles.appendChild(nodeRoles);
+  
+      let tr = document.createElement("tr"); 
+      tr.appendChild(thN);
+      tr.appendChild(thHeroName);
+      tr.appendChild(thAttackType);
+      tr.appendChild(thRoles);
+              
+      let table = document.getElementById(tableID); 
+      table.appendChild(tr);
+
+
+      fetch('https://api.opendota.com/api/heroes')
+      .then( data => {
+        return data.json();
+      })
+      .then(data => {
+        for (let i = 0; i < 12; i++){
+          if(o == data[i].localized_name){         
+          
+          const a = i+1;
+          const b = data[i].localized_name;
+          const c = data[i].attack_type;
+          const d = data[i].roles;                
+            
+          let tda = document.createElement("td");
+          let tdb = document.createElement("td");
+          let tdc = document.createElement("td");
+          let tdd = document.createElement("td");          
+              
+          let nodea = document.createTextNode(a);
+          let nodeb = document.createTextNode(b);
+          let nodec = document.createTextNode(c);
+          let noded = document.createTextNode(d);  
+  
+          tda.appendChild(nodea);
+          tdb.appendChild(nodeb);
+          tdc.appendChild(nodec);
+          tdd.appendChild(noded);
+  
+          let tr = document.createElement("tr"); 
+          tr.appendChild(tda);
+          tr.appendChild(tdb);
+          tr.appendChild(tdc);
+          tr.appendChild(tdd);
+          
+          
+          let table = document.getElementById(tableID); 
+          table.appendChild(tr);
+          }
+      } 
+    }); 
+  }      
+            
+  </script>
+
 </html>
     
