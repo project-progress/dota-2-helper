@@ -54,7 +54,7 @@
       
     <style>
 
-    .submitButton {
+    .searchButton {
       color: white;
       background-color: rgb(133, 9, 0);
       border: 0;
@@ -79,7 +79,7 @@
       visibility: hidden; 
     }
 
-    .submitButton:hover,
+    .searchButton:hover,
     .submitButton1:hover,
     .submitButton2:hover{
       box-shadow: 0 0 15px red;
@@ -130,6 +130,17 @@
       width: 94%;
       box-shadow: 0 0 50px red;
     }
+
+    .table1,
+    .table2{
+      display: none;
+      margin-left: auto;
+      margin-right: auto;
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 94%;
+      box-shadow: 0 0 50px red;
+    }
         
     th, td {
     text-align: left;
@@ -171,9 +182,9 @@
       <input id="name" class="name" type="text"  placeholder="Choose a hero name">
       <input id="name2" class="name2" type="text"  placeholder="Choose the name of the 2nd heroe">
       <br>
-      <input id="submitButton1" class="submitButton1" value="Compare" onclick="getHero1()">
-      <input id="submitButton"  class="submitButton"  value="Submit" onclick="getHero()">
-      <input id="submitButton2" class="submitButton2" value="Compare" onclick="getHero2()">
+      <input id="submitButton1" class="submitButton1" value="Compare" onclick="dataInTable('name1','table1')">
+      <input id="searchButton"  class="searchButton"  value="Search" onclick="getHero()">
+      <input id="submitButton2" class="submitButton2" value="Compare" onclick="dataInTable('name2','table2')">
    
     </form> 
           
@@ -186,8 +197,71 @@
     <table id="table" class="table"></table> 
     <table id="resultTable" class="table"></table>
     <div class="row">
-      <div class="column"> <table id="table1" class="table"></table> </div>
-      <div class="column"> <table id="table2" class="table"></table> </div>
+      <div class="column"> 
+        <table id="table1" class="table1">
+          <tr>
+            <th>Attack</th>
+            <th>Defense</th>
+            <th>Mobility</th>
+          </tr>
+          <tr>
+            <td>Base attack min-max</td>
+            <td>Base health</td>
+            <td>Move speed</td>
+          </tr>
+          <tr>
+            <td>Base armor</td>
+            <td>Base health regen</td>
+            <td>Legs</td>
+          </tr>
+          <tr>
+            <td>Attack rate</td>
+            <td>Base mana</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Attack range</td>
+            <td>Base mana regen</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Projectile speed</td>
+            <td></td><td></td>
+          </tr>
+        </table> 
+      </div><div class="column"> 
+        <table id="table2" class="table2">
+          <tr>
+            <th>Attack</th>
+            <th>Defense</th>
+            <th>Mobility</th>
+          </tr>
+          <tr>
+            <td>Base attack min-max</td>
+            <td>Base health</td>
+            <td>Move speed</td>
+          </tr>
+          <tr>
+            <td>Base armor</td>
+            <td>Base health regen</td>
+            <td>Legs</td>
+          </tr>
+          <tr>
+            <td>Attack rate</td>
+            <td>Base mana</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Attack range</td>
+            <td>Base mana regen</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Projectile speed</td>
+            <td></td><td></td>
+          </tr>
+        </table> 
+      </div>
     </div>
     <br>
     <input id="compareButton" class="compareButton" value="Compare"  onclick="compareButton()"> 
@@ -198,6 +272,14 @@
   <script>
     
     createTable("table");
+
+    async function getData() {
+    const response = await fetch('https://api.opendota.com/api/heroStats');
+    const data = await response.json();
+    // console.log(data);
+    return data;
+    
+  }
 
     function getHero (){    
       
@@ -219,7 +301,7 @@
 
     function getHero1 (){createTableIf("name1","table1");}
 
-    function getHero2 (){createTableIf("name2","table2");}
+    function getHero2 (){dataInTable("name2","table2");}
 
     function returnHeroesButton (){
 
@@ -257,8 +339,8 @@
       let name2 = document.getElementById("name2");
       name2.style.visibility = "visible";
 
-      let submitButton = document.getElementById("submitButton");
-      submitButton.style.visibility = "hidden";
+      let searchButton = document.getElementById("searchButton");
+      searchButton.style.visibility = "hidden";
       
       let submitButton1 = document.getElementById("submitButton1");
       submitButton1.style.visibility = "visible";
@@ -270,6 +352,8 @@
 
     function createTable(tableID){
     
+    let data = getData();
+
     const n = "N";
     const heroName = "Hero name";
     const attackType = "Attack Type";
@@ -299,11 +383,7 @@
     let table = document.getElementById(tableID); 
     table.appendChild(tr);
 
-    fetch('https://api.opendota.com/api/heroes')
-      .then( data => {
-        return data.json();
-      })
-      .then(data => {
+    data.then(data => {
       for (let i = 0; i < 6; i++) {
 
       const a = i+1;
@@ -343,6 +423,8 @@
 
     function createTableIf(inputID, tableID){
     
+      let data = getData();
+
       const o = document.getElementById(inputID).value;
       const n = "N";
       const heroName = "Hero name";
@@ -374,11 +456,7 @@
       table.appendChild(tr);
 
 
-      fetch('https://api.opendota.com/api/heroes')
-      .then( data => {
-        return data.json();
-      })
-      .then(data => {
+      data.then(data => {
         for (let i = 0; i < 12; i++){
           if(o == data[i].localized_name){         
           
@@ -415,7 +493,38 @@
       } 
     }); 
   }      
-            
+  
+    function dataInTable(inputID, tableID){
+    
+    let data = getData();
+    let name = document.getElementById(inputID).value;
+    data.then(data =>{
+    let table = document.getElementById(tableID);
+    table.style.display = "inline-table";
+    let td = table.getElementsByTagName("td");
+    for (let i = 0; i < 12; i++){
+      if(name == data[i].localized_name){
+    td[0].innerHTML += " " + data[i].base_attack_min + "-" + data[i].base_attack_max;
+    td[1].innerHTML += " " + data[i].base_health;
+    td[2].innerHTML += " " + data[i].move_speed;
+    td[3].innerHTML += " " + data[i].base_armor;
+    td[4].innerHTML += " " + data[i].base_health_regen;
+    td[5].innerHTML += " " + data[i].legs;
+    td[6].innerHTML += " " + data[i].attack_rate;
+    td[7].innerHTML += " " + data[i].base_mana;
+    td[9].innerHTML += " " + data[i].attack_range;
+    td[10].innerHTML += " " + data[i].base_mana_regen;
+    td[12].innerHTML += " " + data[i].projectile_speed;
+      }
+    }
+    console.log(td);
+    console.log(td[3]);
+  
+    })
+   
+    // }); 
+  }
+  
   </script>
 
 </html>
