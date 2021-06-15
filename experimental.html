@@ -2,7 +2,7 @@
 <html>
 
   <head>
-      <title>index</title>
+      <title>Experimental</title>
       <link rel="stylesheet" href="dota.css">
   </head>
 
@@ -60,23 +60,21 @@
       border: 0;
       padding: 5px;
       width: 10%;
-      margin-top: 0.5%;
-      margin-left: 10.5%;
-      margin-right: 10.5%;
-      visibility: visible;  
+      margin-top: 0.5%; 
     }
 
     .submitButton1, 
     .submitButton2{
+      display: none;
       color: white;
       background-color: rgb(133, 9, 0);
       border: 0;
       padding: 5px;
       width: 10%;
-      margin-top: 0.5%;
+      /* margin-top: 0.5%;
       margin-left: 10.5%;
-      margin-right: 10.5%; 
-      visibility: hidden; 
+      margin-right: 10.5%;  */
+      /* visibility: visible;  */
     }
 
     .searchButton:hover,
@@ -182,9 +180,9 @@
       <input id="name" class="name" type="text"  placeholder="Choose a hero name">
       <input id="name2" class="name2" type="text"  placeholder="Choose the name of the 2nd heroe">
       <br>
-      <input id="submitButton1" class="submitButton1" value="Compare" onclick="dataInTable('name1','table1')">
+      <input id="submitButton1" class="submitButton1" value="Compare" onclick="getHero1()">
       <input id="searchButton"  class="searchButton"  value="Search" onclick="getHero()">
-      <input id="submitButton2" class="submitButton2" value="Compare" onclick="dataInTable('name2','table2')">
+      <!-- <input id="submitButton2" class="submitButton2" value="Compare" onclick="dataInTable('name2','table2')"> -->
    
     </form> 
           
@@ -196,7 +194,8 @@
          
     <table id="table" class="table"></table> 
     <table id="resultTable" class="table"></table>
-    <div class="row">
+    <table id="compareTable" class="table1"></table>
+    <!-- <div class="row">
       <div class="column"> 
         <table id="table1" class="table1">
           <tr>
@@ -262,7 +261,7 @@
           </tr>
         </table> 
       </div>
-    </div>
+    </div> -->
     <br>
     <input id="compareButton" class="compareButton" value="Compare"  onclick="compareButton()"> 
     <input id="viewAllButton" class="viewAllButton" value="view all heroes"onclick="returnHeroesButton()">  
@@ -272,16 +271,16 @@
   <script>
     
     createTable("table");
+    
 
     async function getData() {
     const response = await fetch('https://api.opendota.com/api/heroStats');
     const data = await response.json();
-    // console.log(data);
     return data;
     
   }
 
-    function getHero (){    
+    function getHer(){    
       
       let clearDisplay = document.getElementById("table");
       clearDisplay.style.display = "none";
@@ -295,11 +294,17 @@
       let compareButton = document.getElementById("compareButton");
       compareButton.style.display = "inline";
 
-      createTableIf("name","resultTable")
+      createTableIf("name","resultTable");   
      
     }
 
-    function getHero1 (){createTableIf("name1","table1");}
+    function getHero1 (){
+
+      let compareTable = document.getElementById("compareTable");
+      compareTable.style.display = "inline-table"; 
+      
+      createTableIf("name1","compareTable");
+    }
 
     function getHero2 (){dataInTable("name2","table2");}
 
@@ -340,13 +345,16 @@
       name2.style.visibility = "visible";
 
       let searchButton = document.getElementById("searchButton");
-      searchButton.style.visibility = "hidden";
+      searchButton.style.display = "none";
       
-      let submitButton1 = document.getElementById("submitButton1");
-      submitButton1.style.visibility = "visible";
+      // let submitButton1 = document.getElementById("submitButton1");
+      // submitButton1.style.visibility = "visible";
 
-      let submitButton2 = document.getElementById("submitButton2");
-      submitButton2.style.visibility = "visible";
+      // let submitButton2 = document.getElementById("submitButton2");
+      // submitButton2.style.visibility = "visible";
+
+      let submitButton1 = document.getElementById("submitButton1");
+      submitButton1.style.display = "inline-table"; 
 
     }
 

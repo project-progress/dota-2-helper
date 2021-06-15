@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Page</title>
+</head>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+  
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: red;
+}
+</style>
+</head>
+<body>
+
+<h2>Tables Side by Side</h2>
+<p>How to create side-by-side tables with CSS:</p>
+
+<div class="row">
+  <div class="column">
+    <table id="table1">
+
+    </table>
+  </div>
+  <div class="column">
+    <table id="table2">
+      <tr>
+        <th>Attack</th>
+        <th>Defense</th>
+        <th>Mobility</th>
+      </tr>
+      <tr>
+        <td>Base attack min-max</td>
+        <td>Base health</td>
+        <td>Move speed</td>
+      </tr>
+      <tr>
+        <td>Base armor</td>
+        <td>Base health regen</td>
+        <td>Legs</td>
+      </tr>
+      <tr>
+        <td>Attack rate</td>
+        <td>Base mana</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Attack range</td>
+        <td>Base mana regen</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Projectile speed</td>
+        <td></td><td></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+</body>
+ 
+<script>
+   
+  // let table2 = document.getElementById("table2");
+  // let rr = table2.getElementsByTagName("td");
+  // let jj = rr[0].innerHTML += "WoW"
+  // console.log(rr);
+  // console.log(jj);
+
+  // getData();
+
+  async function getData() {
+    const response = await fetch('https://api.opendota.com/api/heroStats');
+    const data = await response.json();
+    // console.log(data);
+    return data;
+    
+  }
+  
+
+    createTable("table1");
+    // createTable("table2");
+    dataInTable("table2");
+
+  function dataInTable(inputID, tableID){
+    
+    let data = getData();
+    let name = document.getElementById(inputID).value;
+    data.then(data =>{
+    let table2 = document.getElementById(tableID);
+    let td = table2.getElementsByTagName("td");
+    for (let i = 0; i < 12; i++){
+      if(o == data[i].localized_name){
+    td[0].innerHTML += " " + data[0].base_attack_min + "-" + data[0].base_attack_max;
+    td[1].innerHTML += " " + data[0].base_health;
+    td[2].innerHTML += " " + data[0].move_speed;
+    td[3].innerHTML += " " + data[0].base_armor;
+    td[4].innerHTML += " " + data[0].base_health_regen;
+    td[5].innerHTML += " " + data[0].legs;
+    td[6].innerHTML += " " + data[0].attack_rate;
+    td[7].innerHTML += " " + data[0].base_mana;
+    td[9].innerHTML += " " + data[0].attack_range;
+    td[10].innerHTML += " " + data[0].base_mana_regen;
+    td[12].innerHTML += " " + data[0].projectile_speed;
+      }
+    }
+    console.log(td);
+    console.log(td[3]);
+  
+    })
+   
+    // }); 
+  }
+
+
+  function createTable(tableID){
+    
+    const attack = "Attack";
+    const defense = "Defense";
+    const mobility = "Mobility";           
+    
+    let tdAttack = document.createElement("th");
+    let tdDefense = document.createElement("th");
+    let tdMobility = document.createElement("th");
+                      
+    let nodeAttack = document.createTextNode(attack);
+    let nodeDefense = document.createTextNode(defense);
+    let nodeMobility = document.createTextNode(mobility);
+        
+    tdAttack.appendChild(nodeAttack);
+    tdDefense.appendChild(nodeDefense);
+    tdMobility.appendChild(nodeMobility);
+    
+    let tr = document.createElement("tr"); 
+    tr.appendChild(tdAttack);
+    tr.appendChild(tdDefense);
+    tr.appendChild(tdMobility);
+        
+    let table = document.getElementById(tableID); 
+    table.appendChild(tr);
+
+    fetch('https://api.opendota.com/api/heroStats')
+     .then( data => {return data.json();})
+     .then(data => {
+      for (let i = 0; i < 2; i++) {
+
+      const a = i+1;
+      const b = data[i].localized_name;
+      const c = data[i].attack_type;
+      const d = data[i].roles;
+                    
+      
+      let tda = document.createElement("td");
+      let tdb = document.createElement("td");
+      let tdc = document.createElement("td");
+      let tdd = document.createElement("td");
+      // let tde = document.createElement("td");
+      // let tdf = document.createElement("td");
+      
+      
+      let nodea = document.createTextNode("Base Attack " + data[i].base_attack_min + "-" + data[i].base_attack_max );
+      let nodeb = document.createTextNode("attack_rate");
+      let nodec = document.createTextNode(c);
+      let noded = document.createTextNode(d);
+      
+
+      tda.appendChild(nodea);
+      tdb.appendChild(nodeb);
+      tdc.appendChild(nodec);
+      tdd.appendChild(noded);
+
+      let tr = document.createElement("tr"); 
+      tr.appendChild(tda);
+      tr.appendChild(tda);
+      tr.appendChild(tdc);
+      tr.appendChild(tdd);
+      
+      let table = document.getElementById(tableID); 
+      table.appendChild(tr);
+    } 
+  }); 
+  }
+
+
+
+</script>
+
+
+</html>
