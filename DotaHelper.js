@@ -70,12 +70,16 @@ createCompareTable("compareTable")
       let name2 = document.getElementById("name2");
       name2.style.visibility = "visible";
 
+      name1.value = name.value;
+
       let searchButton = document.getElementById("searchButton");
       searchButton.style.display = "none";
       
       let compareButton = document.getElementById("compareButton");
       compareButton.style.display = "inline";
-
+      
+      let clearButton = document.getElementById("clearButton");
+      clearButton.style.display = "inline";
 
     }
 
@@ -257,4 +261,3 @@ createCompareTable("compareTable")
      });
   
     }
-  
