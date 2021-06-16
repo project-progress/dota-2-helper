@@ -24,21 +24,22 @@
   <body>
                           
     <form id="form" class="form">
-
-      <input id="name1" class="name1" type="text"  placeholder="Choose the name of the 1st heroe">
-      <input id="name" class="name" type="text"  placeholder="Choose a hero name">
-      <input id="name2" class="name2" type="text"  placeholder="Choose the name of the 2nd heroe">
-      <br>
-      <input id="compareButton" class="compareButton" value="Compare" readonly onclick="compareHeroes()">
-      <input id="searchButton"  class="searchButton"  value="Search" readonly onclick="searchHero()">
-   
-    </form> 
-          
+  
+    <input id="name1" class="name1" type="text"  placeholder="Choose the name of the 1st heroe" onkeypress="entercompareHeroes(event)">
+    <input id="name" class="name" type="text"  placeholder="Choose a hero name" onkeypress="enterSearchHero(event)">
+    <input id="name2" class="name2" type="text"  placeholder="Choose the name of the 2nd heroe" onkeypress="entercompareHeroes(event)">
+      
+    </form>
+  
+    <button id="searchButton" class="searchButton" onclick="searchHero()">Search</button>
+    <button id="compareButton" class="compareButton" onclick="compareHeroes()">Compare</button>
+    <button id="viewAllButton" class="viewAllButton" onclick="returnHeroesButton()">View all heroes</button>
+  
   </body>
 
   <!-- Tables -->
 
-  <body id="bodyTable"> 
+  <body> 
          
     <table id="mainTable" class="mainTable">
       <tr>
@@ -47,7 +48,7 @@
         <th>Attack Type</th>
         <th>Roles</th>
       </tr>
-    </table> 
+    </table>
     <table id="resultTable" class="resultTable">
       <tr>
         <th>N</th>
@@ -68,12 +69,7 @@
         <th>VS</th>
         <th>2nd Hero Name</th>
       </tr>
-    </table>
-    
-    <br>
-
-    <input id="goToCompareButton" class="goToCompareButton" value="Compare" readonly  onclick="goToCompareButton()"> 
-    <input id="viewAllButton" class="viewAllButton" value="view all heroes" readonly onclick="returnHeroesButton()">  
+    </table>     
 
   </body>
     

@@ -50,17 +50,18 @@ body {
   border: 0;
   padding: 5px;
   width: 10%;
-  margin-top: 0.5%;  
+  margin-top: 0.5%;
+  margin-bottom: 1%;  
 }
 
 .compareButton{
-  display: none;
   color: white;
   background-color: rgb(133, 9, 0);
   border: 0;
   padding: 5px;
   width: 10%;
-  margin-top: 0.5%; 
+  margin-top: 0.5%;
+  margin-bottom: 1%; 
 }
 
 .searchButton:hover,
@@ -68,18 +69,16 @@ body {
   box-shadow: 0 0 15px red;
 } 
 
-.goToCompareButton,
 .viewAllButton{
   display: none;
-  margin: 10px;
   color: white;
   background-color: rgb(133, 9, 0);
   border: 0;
   padding: 5px;
   width: 10%;
+  margin-bottom: 1%;
 }
 
-.goToCompareButton:hover,
 .viewAllButton:hover{
   box-shadow: 0 0 15px red;
 }
@@ -111,6 +110,7 @@ body {
   display: inline-table;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1%;
   border-collapse: collapse;
   border-spacing: 0;
   width: 94%;
@@ -120,7 +120,8 @@ body {
 .resultTable{
   display: none;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto;  
+  margin-bottom: 1%;
   border-collapse: collapse;
   border-spacing: 0;
   width: 94%;
@@ -131,6 +132,7 @@ body {
   display: none;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1%;
   border-collapse: collapse;
   border-spacing: 0;
   width: 94%;

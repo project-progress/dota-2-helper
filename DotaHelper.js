@@ -19,47 +19,13 @@ createCompareTable("compareTable")
       let viewAllButton = document.getElementById("viewAllButton");
       viewAllButton.style.display = "inline";
       
-      let goToCompareButton = document.getElementById("goToCompareButton");
-      goToCompareButton.style.display = "inline";
-
       dataInResultTable("name","resultTable");
      
     }
 
     function compareHeroes (){
     
-      let compareTable = document.getElementById("compareTable");
-      compareTable.style.display = "inline-table"; 
       
-      dataInCompareTable("name1", "name2", "compareTable");
-    }
-
-    function returnHeroesButton (){
-
-      let resultTable = document.getElementById("resultTable");
-      resultTable.style.display = "none"; 
-
-      let returnMainTable = document.getElementById("mainTable");
-      returnMainTable.style.display = "inline-table";
-
-      let viewAllButton = document.getElementById("viewAllButton");
-      viewAllButton.style.display = "none";
-
-      let goToCompareButton = document.getElementById("goToCompareButton");
-      goToCompareButton.style.display = "none";
-
-    }
-
-    function goToCompareButton (){
-
-      let resultTable = document.getElementById("resultTable");
-      resultTable.style.display = "none"; 
-
-      let viewAllButton = document.getElementById("viewAllButton");
-      viewAllButton.style.display = "none";
-
-      let goToCompareButton = document.getElementById("goToCompareButton");
-      goToCompareButton.style.display = "none";
 
       let name = document.getElementById("name");
       name.style.visibility = "hidden";
@@ -69,17 +35,50 @@ createCompareTable("compareTable")
 
       let name2 = document.getElementById("name2");
       name2.style.visibility = "visible";
-
-      name1.value = name.value;
+      
+      let viewAllButton = document.getElementById("viewAllButton");
+      viewAllButton.style.display = "inline";
 
       let searchButton = document.getElementById("searchButton");
-      searchButton.style.display = "none";
+      searchButton.style.display = "none"; 
       
-      let compareButton = document.getElementById("compareButton");
-      compareButton.style.display = "inline";
+      let mainTable = document.getElementById("mainTable");
+      mainTable.style.display = "none"; 
       
-      let clearButton = document.getElementById("clearButton");
-      clearButton.style.display = "inline";
+      let resultTable = document.getElementById("resultTable");
+      resultTable.style.display = "none";  
+
+      let compareTable = document.getElementById("compareTable");
+      compareTable.style.display = "inline-table";  
+      
+      dataInCompareTable("name1", "name2", "compareTable");
+    }
+
+    function returnHeroesButton (){
+
+      let name = document.getElementById("name");
+      name.style.visibility = "visible";
+
+      let searchButton = document.getElementById("searchButton");
+      searchButton.style.display = "inline"; 
+
+      let name1 = document.getElementById("name1");
+      name1.style.visibility = "hidden";
+
+      let name2 = document.getElementById("name2");
+      name2.style.visibility = "hidden";
+
+      let resultTable = document.getElementById("resultTable");
+      resultTable.style.display = "none";
+      
+      let compareTable = document.getElementById("compareTable");
+      compareTable.style.display = "none"; 
+
+      let returnMainTable = document.getElementById("mainTable");
+      returnMainTable.style.display = "inline-table";
+
+      let viewAllButton = document.getElementById("viewAllButton");
+      viewAllButton.style.display = "none";
 
     }
 
@@ -260,4 +259,18 @@ createCompareTable("compareTable")
       
      });
   
+    }
+
+    function enterSearchHero(event) {
+      var x = event.which || event.keyCode;
+      if (x == 13){
+        searchHero();
+      }
+    }
+    
+    function entercompareHeroes(event) {
+      var x = event.which || event.keyCode;
+      if (x == 13){
+        compareHeroes();
+      }
     }
