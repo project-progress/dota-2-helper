@@ -142,8 +142,9 @@ createCompareTable("compareTable")
     }
 
     function dataInResultTable(inputID, tableID){
-    
-      let inputValue = document.getElementById(inputID).value;
+      
+      let value = document.getElementById(inputID).value;
+      let inputValue = searchText(value);
       let table = document.getElementById(tableID);
       let td = table.getElementsByTagName("td");
             
@@ -164,8 +165,11 @@ createCompareTable("compareTable")
     
     let data = getData();
     
-    let name1 = document.getElementById(input1ID).value;
-    let name2 = document.getElementById(input2ID).value;
+    let name1Value = document.getElementById(input1ID).value;
+    let name1 = searchText(name1Value)
+
+    let name2Value = document.getElementById(input2ID).value;
+    let name2 = searchText(name2Value);
     
     let table = document.getElementById(tableID);
     table.style.display = "inline-table";
@@ -273,4 +277,27 @@ createCompareTable("compareTable")
       if (x == 13){
         compareHeroes();
       }
+    }
+
+    function searchText(str){
+      
+      let a = str;
+      
+      let A = a.trim().toLowerCase();
+      
+      var string = A.replace(A.charAt(0),A.charAt(0).toUpperCase());
+          
+      for(let i = 0; i < A.length; i++){
+        if(A.charAt(i) == " "){
+          
+          let sub1 = A.substr(0,i);    
+          let Sub1 = sub1.replace(sub1.charAt(0),sub1.charAt(0).toUpperCase());
+          
+          let sub2 = A.substr(i+1,A.length);
+          let Sub2 = sub2.replace(sub2.charAt(0),sub2.charAt(0).toUpperCase());
+          
+          string = Sub1.concat(" " + Sub2);          
+        } 
+      }      
+      return string; 
     }
